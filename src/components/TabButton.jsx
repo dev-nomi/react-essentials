@@ -1,7 +1,7 @@
-function TabButton({ children, onClick, active }) {
+function TabButton({ children, active, ...props }) {
   return (
     <li>
-      <button className={active ? "active" : ""} onClick={onClick}>
+      <button className={active ? "active" : ""} {...props}>
         {children}
       </button>
     </li>
