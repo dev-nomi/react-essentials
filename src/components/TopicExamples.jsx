@@ -2,6 +2,7 @@ import { useState } from "react";
 import TabButton from "./TabButton";
 import TabContent from "./TabContent";
 import Section from "./UI/Section";
+import Tabs from "./UI/Tabs";
 
 function TopicExamples() {
   const [selectedTopic, setSelectedTopic] = useState(null);
@@ -18,33 +19,38 @@ function TopicExamples() {
 
   return (
     <Section title="Examples" id="examples">
-      <menu>
-        <TabButton
-          onClick={() => handleClick("components")}
-          active={selectedTopic === "components"}
-        >
-          Components
-        </TabButton>
-        <TabButton
-          onClick={() => handleClick("jsx")}
-          active={selectedTopic === "jsx"}
-        >
-          JSX
-        </TabButton>
-        <TabButton
-          onClick={() => handleClick("props")}
-          active={selectedTopic === "props"}
-        >
-          Props
-        </TabButton>
-        <TabButton
-          onClick={() => handleClick("state")}
-          active={selectedTopic === "state"}
-        >
-          State
-        </TabButton>
-      </menu>
-      {tabContent}
+      <Tabs
+        buttons={
+          <>
+            <TabButton
+              onClick={() => handleClick("components")}
+              active={selectedTopic === "components"}
+            >
+              Components
+            </TabButton>
+            <TabButton
+              onClick={() => handleClick("jsx")}
+              active={selectedTopic === "jsx"}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              onClick={() => handleClick("props")}
+              active={selectedTopic === "props"}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              onClick={() => handleClick("state")}
+              active={selectedTopic === "state"}
+            >
+              State
+            </TabButton>
+          </>
+        }
+      >
+        {tabContent}
+      </Tabs>
     </Section>
   );
 }
